@@ -21,6 +21,15 @@ public class Pawn extends AbstractPiece {
         ArrayList<Move> pawnMoves = new ArrayList<>();
        if (this.getColour() == PlayerColour.WHITE) {
 
+           if (from.getRow() == 6){
+               int toRow = from.getRow() - (2);
+               int toColumn = from.getCol();
+
+               Coordinates to = new Coordinates(toRow, toColumn);
+               Move pawnMove = new Move(from, to);
+               pawnMoves.add(pawnMove);
+           }
+
            int toRow = from.getRow() - 1;
            int toColumn = from.getCol();
 
@@ -31,7 +40,17 @@ public class Pawn extends AbstractPiece {
 
        else {
 
-           //Coordinates to = new Coordinates(from.plus(1,0));
+
+           //Coordinates to = Coordinates(from.plus(1,0));
+
+           if (from.getRow() == 1){
+               int toRow = from.getRow() + (2);
+               int toColumn = from.getCol();
+
+               Coordinates to = new Coordinates(toRow, toColumn);
+               Move pawnMove = new Move(from, to);
+               pawnMoves.add(pawnMove);
+           }
 
            int toRow = from.getRow() + 1;
            int toColumn = from.getCol();
