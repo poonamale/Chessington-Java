@@ -31,7 +31,7 @@ public class PawnTest {
         // Arrange
         Board board = Board.empty();
         Piece pawn = new Pawn(PlayerColour.BLACK);
-        Coordinates coords = new Coordinates(1, 4);
+        Coordinates coords = new Coordinates(2, 4);
         board.placePiece(coords, pawn);
 
         // Act
