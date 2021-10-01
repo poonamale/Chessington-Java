@@ -8,6 +8,7 @@ import training.chessington.model.PlayerColour;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Pawn extends AbstractPiece {
     public Pawn(PlayerColour colour) {
@@ -22,42 +23,42 @@ public class Pawn extends AbstractPiece {
        if (this.getColour() == PlayerColour.WHITE) {
 
            if (from.getRow() == 6){
-               int toRow = from.getRow() - (2);
-               int toColumn = from.getCol();
 
-               Coordinates to = new Coordinates(toRow, toColumn);
+               Coordinates to = from.plus(-2, 0);
                Move pawnMove = new Move(from, to);
                pawnMoves.add(pawnMove);
            }
 
-           int toRow = from.getRow() - 1;
-           int toColumn = from.getCol();
 
-           Coordinates to = new Coordinates(toRow, toColumn);
+           Coordinates to = from.plus(-1, 0);
            Move pawnMove = new Move(from, to);
            pawnMoves.add(pawnMove);
+
+           if (board.get(from.plus(-1,0)) != null) {
+               pawnMoves.clear();
+           }
+
        }
+
+
 
        else {
 
 
-           //Coordinates to = Coordinates(from.plus(1,0));
-
            if (from.getRow() == 1){
-               int toRow = from.getRow() + (2);
-               int toColumn = from.getCol();
 
-               Coordinates to = new Coordinates(toRow, toColumn);
+               Coordinates to = from.plus(2,0);
                Move pawnMove = new Move(from, to);
                pawnMoves.add(pawnMove);
            }
 
-           int toRow = from.getRow() + 1;
-           int toColumn = from.getCol();
-
-           Coordinates to = new Coordinates(toRow, toColumn);
+           Coordinates to = from.plus(1,0);
            Move pawnMove = new Move(from, to);
            pawnMoves.add(pawnMove);
+
+           if (board.get(from.plus(1,0)) != null) {
+               pawnMoves.clear();
+           }
 
 
        }

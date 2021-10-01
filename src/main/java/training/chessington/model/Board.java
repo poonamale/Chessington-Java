@@ -2,6 +2,8 @@ package training.chessington.model;
 
 import training.chessington.model.pieces.*;
 
+import java.util.List;
+
 public class Board {
 
     private Piece[][] board = new Piece[8][8];
@@ -45,6 +47,7 @@ public class Board {
         board[to.getRow()][to.getCol()] = board[from.getRow()][from.getCol()];
         board[from.getRow()][from.getCol()] = null;
     }
+
 
     public void placePiece(Coordinates coords, Piece piece) {
         board[coords.getRow()][coords.getCol()] = piece;
